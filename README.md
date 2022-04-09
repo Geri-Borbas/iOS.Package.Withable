@@ -239,10 +239,10 @@ let mail = UIImage(systemName: "envelope").withRenderingMode(.alwaysTemplate)
 let color = UIColor.label.withAlphaComponent(0.5)
 ```
     
-    + [`UIImage.withTintColor(_:)`]
-    + [`UIImage.withAlphaComponent(_:)`]
-    + [`UIImage.Configuration.withTraitCollection(_:)`]
-    + More examples in [`UIImage.Configuration`]
+* [`UIImage.withTintColor(_:)`]
+* [`UIImage.withAlphaComponent(_:)`]
+* [`UIImage.Configuration.withTraitCollection(_:)`]
+* More examples in [`UIImage.Configuration`]
 
 
 ## Stored properties in extensions
@@ -266,6 +266,11 @@ extension UITextField {
 ```
 
 
+## Declare constraints inline
+
+One more secret weapon is the [`UIView.onMoveToSuperview`] extension, which is simply called (once) when the view gets added to a view. You can declare the constraints in advance using this closure at initialization time, then they are added later on at runtime by the time when the view has a superview. See [Keyboard Avoidance] repository for usage examples.
+
+
 ## License
 
 > Licensed under the [**MIT License**](https://en.wikipedia.org/wiki/MIT_License).
@@ -279,3 +284,4 @@ extension UITextField {
 [`UIImage.withAlphaComponent(_:)`]: https://developer.apple.com/documentation/uikit/uicolor/1621922-withalphacomponent
 [`UIImage.Configuration.withTraitCollection(_:)`]: https://developer.apple.com/documentation/uikit/uiimage/configuration/3295946-withtraitcollection
 [`UIImage.Configuration`]: https://developer.apple.com/documentation/uikit/uiimage/configuration
+[Keyboard Avoidance]: https://github.com/Geri-Borbas/iOS.Blog.Keyboard_Avoidance
