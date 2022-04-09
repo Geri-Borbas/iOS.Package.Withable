@@ -233,7 +233,7 @@ I recommend to read the corresponding article at [**Declarative UIKit with 10 li
 
 Later on, I found out that on occasions **Apple uses the very same pattern** to enable decorating objects inline. These decorator functions are even uses the same `with` naming convention.
 
-These examples below are in vanilla iOS. 🍦
+These examples below are in vanilla `UIKit`. 🍦
 
 ```Swift
 let arrow = UIImage(named: "Arrow").withTintColor(.blue)
