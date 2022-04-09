@@ -268,7 +268,7 @@ extension UITextField {
 
 ## Declare constraints inline
 
-One more secret weapon is the [`UIView.onMoveToSuperview`] extension, which is simply called (once) when the view gets added to a view. You can declare the constraints in advance using this closure at initialization time, then they are added later on at runtime by the time when the view has a superview. See [Keyboard Avoidance] repository for usage examples.
+One more secret weapon is the [`UIView.onMoveToSuperview`] extension, which is simply a closure called (once) when the `view` gets added to a `superview`. With that you can declare the constraints in advance using this closure at initialization time, then they are added/activated later on at runtime by the time when the view has a superview. See [Keyboard Avoidance] repository for usage examples.
 
 
 ## License
@@ -284,4 +284,5 @@ One more secret weapon is the [`UIView.onMoveToSuperview`] extension, which is s
 [`UIImage.withAlphaComponent(_:)`]: https://developer.apple.com/documentation/uikit/uicolor/1621922-withalphacomponent
 [`UIImage.Configuration.withTraitCollection(_:)`]: https://developer.apple.com/documentation/uikit/uiimage/configuration/3295946-withtraitcollection
 [`UIImage.Configuration`]: https://developer.apple.com/documentation/uikit/uiimage/configuration
+[`UIView.onMoveToSuperview`]: Withable/UIView+Extensions.swift
 [Keyboard Avoidance]: https://github.com/Geri-Borbas/iOS.Blog.Keyboard_Avoidance
