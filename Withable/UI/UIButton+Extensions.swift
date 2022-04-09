@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIButton {
+public extension UIButton {
     
     typealias Action = () -> Void
     

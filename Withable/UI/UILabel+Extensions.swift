@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UILabel {
+public extension UILabel {
     
     func with(text: String?) -> Self {
         with {

@@ -27,7 +27,7 @@ extension NSObject {
         }
     }
     
-    func set(associatedObject: Any?, for key: AnyHashable) {
+    public func set(associatedObject: Any?, for key: AnyHashable) {
         if let associatedObject = associatedObject {
             associatedObjects[key] = associatedObject
         } else {
@@ -35,11 +35,11 @@ extension NSObject {
         }
     }
     
-    func remove(associatedObjectFor key: AnyHashable) {
-        associatedObjects.removeObject(forKey: key)
+    public func associatedObject(for key: AnyHashable) -> Any? {
+        associatedObjects[key]
     }
     
-    func associatedObject(for key: AnyHashable) -> Any? {
-        associatedObjects[key]
+    func remove(associatedObjectFor key: AnyHashable) {
+        associatedObjects.removeObject(forKey: key)
     }
 }

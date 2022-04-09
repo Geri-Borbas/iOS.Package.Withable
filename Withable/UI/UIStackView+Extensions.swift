@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIStackView {
+public extension UIStackView {
     
     func horizontal(spacing: CGFloat = 0) -> Self {
         with {

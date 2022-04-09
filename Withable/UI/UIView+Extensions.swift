@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIView {
+public extension UIView {
     
     static var spacer: UIView {
         UIView().with {
@@ -35,7 +35,7 @@ extension UIView {
 
 // MARK: Constraints
 
-extension UIView {
+public extension UIView {
     
     func pin(to: UILayoutGuide, insets: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +85,7 @@ extension UIView {
 
 // MARK: - onMoveToSuperview
 
-extension UIView {
+public extension UIView {
     
     typealias ViewAction = (_ view: UIView) -> Void
     typealias ViewAndSuperviewAction = (_ view: UIView, _ superview: UIView) -> Void
@@ -131,11 +131,11 @@ extension UIView {
         }
     }
     
-    @objc fileprivate func originalDidMoveToSuperview() {
+    @objc func originalDidMoveToSuperview() {
         // Original implementation will be copied here.
     }
     
-    @objc fileprivate func swizzledDidMoveToSuperview() {
+    @objc func swizzledDidMoveToSuperview() {
         originalDidMoveToSuperview()
         if superview != nil {
             onMoveToSuperview?(self)
@@ -143,7 +143,7 @@ extension UIView {
         }
     }
     
-    fileprivate func swizzleIfNeeded() {
+    func swizzleIfNeeded() {
         
         guard Self.notSwizzled else {
             return

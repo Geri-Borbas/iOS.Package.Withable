@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIImageView {
+public extension UIImageView {
     
     func with(image: UIImage?) -> Self {
         with {
