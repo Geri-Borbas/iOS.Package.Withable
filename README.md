@@ -231,7 +231,7 @@ I recommend to read the corresponding article at [**Declarative UIKit with 10 li
 
 ## Used by Apple
 
-Later on, I found out that on occasions **Apple uses the very same pattern** to enable decorating objects inline. These decorator functiona are even uses the same `with` naming convention.
+Later on, I found out that on occasions **Apple uses the very same pattern** to enable decorating objects inline. These decorator functions are even uses the same `with` naming convention.
 
 These examples below are in vanilla iOS. 🍦
 
