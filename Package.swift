@@ -9,12 +9,12 @@ let package = Package(
         .library(
             name: "Withable",
             targets: ["Withable"]
-        ),
+        )
     ],
     targets: [
         .target(
             name: "Withable",
-            path: "Refreshable"
+            path: "Withable"
         )
     ]
 )

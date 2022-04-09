@@ -231,7 +231,7 @@ I recommend to read the corresponding article at [**Declarative UIKit with 10 li
 
 ## Used by Apple
 
-Later on I found out that on occasions **Apple uses the very same pattern** to enable decorating objects inline. These decorator function are even uses the same `with` naming convention.
+Later on, I found out that on occasions **Apple uses the very same pattern** to enable decorating objects inline. These decorator functiona are even uses the same `with` naming convention.
 
 These examples below are in vanilla iOS. 🍦
 
@@ -251,7 +251,7 @@ let color = UIColor.label.withAlphaComponent(0.5)
 
 In addition, the package contains an `NSObject` extension that helps creating **stored properties in extensions**. I ended up including it because I found extending `UIKit` classes with stored properties is a pretty common usecase. See [`NSObject+Extensions.swift`] and [`UIButton+Extensions.swift`] for more.
 
-You can do things like this in extensions.
+You can do things like this.
 
 ```Swift
 extension UITextField {
@@ -270,7 +270,7 @@ extension UITextField {
 
 ## Declare constraints inline
 
-One more secret weapon is the [`UIView.onMoveToSuperview`] extension, which is simply a closure called (once) when the `view` gets added to a `superview`. With that you can declare the constraints in advance using this closure at initialization time, then they are added/activated later on at runtime by the time when the view has a superview. See [Keyboard Avoidance] repository for usage examples.
+One more secret weapon is the [`UIView.onMoveToSuperview`] extension, which is simply a closure called (once) when the `view` gets added to a `superview`. With that, you can declare the constraints in advance using this closure at initialization time, then they are added/activated later on at runtime by the time when the view has a superview. See [Keyboard Avoidance] repository for usage examples.
 
 
 ## License
