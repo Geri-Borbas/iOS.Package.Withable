@@ -2,6 +2,8 @@
 
 Declarative UIKit in 10 lines of code.
 
+<p align="center"><img src="Documentation/Declarative_UIKit_with_10_lines_of_code_SwiftUI_Xcode_Preview.png" width="900"></p>
+
 
 ## How to use
 
@@ -12,11 +14,12 @@ class ContentViewController: UIViewController {
     
     ...
     
-    lazy var titleLabel = UILabel().with {
-        $0.text = viewModel.title
-        $0.textColor = .label
-        $0.font = .preferredFont(forTextStyle: .largeTitle)
-    }
+    lazy var titleLabel = UILabel()
+        .with {
+            $0.text = viewModel.title
+            $0.textColor = .label
+            $0.font = .preferredFont(forTextStyle: .largeTitle)
+        }
     
     ...
 }
@@ -25,45 +28,50 @@ class ContentViewController: UIViewController {
 With any kind of object, really.
 
 ```Swift
-lazy var submitButton = UIButton().with {
-    $0.setTitle("Submit", for: .normal)
-    $0.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
-}
+lazy var submitButton = UIButton()
+    .with {
+        $0.setTitle("Submit", for: .normal)
+        $0.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
+    }
 ```
 
 ```Swift
-present(DetailViewController().with {
-    $0.modalTransitionStyle = .crossDissolve
-    $0.modalPresentationStyle = .overCurrentContext
-}, animated: true)
+present(
+    DetailViewController()
+        .with {
+            $0.modalTransitionStyle = .crossDissolve
+            $0.modalPresentationStyle = .overCurrentContext
+        },
+    animated: true
+)
 ```
 
 ```Swift
-present(UIAlertController(
-    title: title,
-    message: message,
-    preferredStyle: .alert
-).with {
-    $0.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-}, animated: true)
+present(
+    UIAlertController(title: title, message: message, preferredStyle: .alert)
+        .with {
+            $0.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        },
+    animated: true
+)
 ```
 
 ```Swift
-let today = DateFormatter().with {
-    $0.dateStyle = .medium
-    $0.locale = Locale(identifier: "en_US")
-}.string(from: Date())
+let today = DateFormatter()
+    .with {
+        $0.dateStyle = .medium
+        $0.locale = Locale(identifier: "en_US")
+    }
+    .string(from: Date())
 ```
 
 ```Swift
-private lazy var displayLink = CADisplayLink(
-    target: self,
-    selector: #selector(update)
-).with {
-    $0.isPaused = true
-    $0.preferredFramesPerSecond = 120
-    $0.add(to: RunLoop.main, forMode: .common)
-}
+lazy var displayLink = CADisplayLink(target: self, selector: #selector(update))
+    .with {
+        $0.isPaused = true
+        $0.preferredFramesPerSecond = 120
+        $0.add(to: RunLoop.main, forMode: .common)
+    }
 ```
 
 Even value types as well (after conforming to `Withable`). 
@@ -71,10 +79,11 @@ Even value types as well (after conforming to `Withable`).
 ```Swift
 extension PersonNameComponents: Withable { }
 
-let name = PersonNameComponents().with {
-    $0.givenName = "Geri"
-    $0.familyName = "Borbás"
-}
+let name = PersonNameComponents()
+    .with {
+        $0.givenName = "Geri"
+        $0.familyName = "Borbás"
+    }
 ```
 
 
@@ -82,7 +91,7 @@ let name = PersonNameComponents().with {
 
 It is implemented in this `with` method.
 
-```
+```Swift
 public extension Withable {
     
     func with(_ closure: (Self) -> Void) -> Self {
@@ -101,7 +110,7 @@ The package contains a couple of convinient extension of `UIKit` classes what I 
 
 For example, you may create a convenient `text` decorator for `UILabel`.
 
-```
+```Swift
 extension UILabel {
     
     func with(text: String?) -> Self {
@@ -114,7 +123,7 @@ extension UILabel {
 
 Furthermore, you can condense your styles to simple extensions like this.
 
-```
+```Swift
 extension UILabel {
     
     var withTitleStyle: Self {
@@ -151,7 +160,7 @@ extension UILabel {
 
 With extensions like that, you can clean up view controllers.
 
-```
+```Swift
 class ContentViewController: UIViewController {
     
     let viewModel = Planets().earth
@@ -224,10 +233,10 @@ Later on I found out that on occasions Apple uses the very same parrent to enabl
 
 These examples below are in vanilla iOS. 🍦
 
-```
-let image = UIImage(named: "Arrow").withTintColor(.blue)
-let image = UIImage(systemName: "envelope").withRenderingMode(.alwaysTemplate)
-let disabledColor = UIColor.label.withAlphaComponent(0.5)
+```Swift
+let arrow = UIImage(named: "Arrow").withTintColor(.blue)
+let mail = UIImage(systemName: "envelope").withRenderingMode(.alwaysTemplate)
+let color = UIColor.label.withAlphaComponent(0.5)
 ```
     
     * [`UIImage.withTintColor(_:)`]
@@ -239,6 +248,22 @@ let disabledColor = UIColor.label.withAlphaComponent(0.5)
 ## Stored properties in extensions
 
 In addition, the package contains an `NSObject` extension that helps creating **stored properties in extensions**. I ended up including it because I found extending `UIKit` classes with stored properties is a pretty common usecase. See [`NSObject+Extensions.swift`] and [`UIButton+Extensions.swift`] for more.
+
+You can do things like this in extensions.
+
+```Swift
+extension UITextField {
+    
+    var nextTextField: UITextField? {
+        get {
+            associatedObject(for: "nextTextField") as? UITextField
+        }
+        set {
+            set(associatedObject: newValue, for: "nextTextField")
+        }
+    }
+}
+```
 
 
 ## License
