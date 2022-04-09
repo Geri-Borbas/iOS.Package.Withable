@@ -1,6 +1,6 @@
 //
 //  UIButton+Extensions.swift
-//  Half Modal
+//  Withable
 //
 //  Created by Geri Borbás on 30/03/2022.
 //  http://www.twitter.com/Geri_Borbas

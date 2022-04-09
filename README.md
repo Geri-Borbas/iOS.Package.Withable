@@ -4,6 +4,8 @@ Declarative UIKit in 10 lines of code.
 
 <p align="center"><img src="Documentation/Declarative_UIKit_with_10_lines_of_code_SwiftUI_Xcode_Preview.png" width="900"></p>
 
+See corresponding article at [**Declarative UIKit with 10 lines of code** A simple extension instead of libraries] for more.
+
 
 ## How to use
 
