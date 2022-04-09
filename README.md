@@ -7,7 +7,7 @@ Declarative UIKit in 10 lines of code.
 
 ## How to use
 
-With a single extension you can do things like this.
+With a **single extension** on `AnyObject` you can do things like this.
 
 ```Swift
 class ContentViewController: UIViewController {
@@ -25,7 +25,7 @@ class ContentViewController: UIViewController {
 }
 ```
 
-With any kind of object, really.
+With **any kind of object**, really.
 
 ```Swift
 lazy var submitButton = UIButton()
@@ -89,7 +89,7 @@ let name = PersonNameComponents()
 
 ## How it works
 
-It is implemented in this `with` method.
+It is implemented in this `with` method. 💎
 
 ```Swift
 public extension Withable {
@@ -101,14 +101,14 @@ public extension Withable {
 }
 ```
 
-The method implements pretty classic patterns. You can think of it as something between an unspecialized/parametric builder, or a decorator with customizable/pluggable decorating behaviour. See [`Withable.swift`] for all details (generics, value types). 
+The method implements pretty **classic patterns**. You can think of it as something between an unspecialized/parametric builder, or a **decorator** with customizable/pluggable decorating behaviour. See [`Withable.swift`] for all details (generics, value types). 
 
 
-## UIKit
+## UIKit benefits
 
-The package contains a couple of convinient extension of `UIKit` classes what I use, which probably will be moved to their own package as they grow. I left them here intentionally as they may exemplify how you can create your own extension tailored for your codebases' needs.
+The package contains a couple of **convinient extensions** of `UIKit` classes what I use (probably will be moved to their own package as they grow). I left them here intentionally as they may exemplify how you can **create your own extensions** tailored for your codebases' needs.
 
-For example, you may create a convenient `text` decorator for `UILabel`.
+For example, you may create a convenient **`text` decorator** for `UILabel`.
 
 ```Swift
 extension UILabel {
@@ -121,7 +121,7 @@ extension UILabel {
 }
 ```
 
-Furthermore, you can condense your styles to simple extensions like this.
+Furthermore, you can condense your **styles to simple extensions** like this.
 
 ```Swift
 extension UILabel {
@@ -229,7 +229,7 @@ I recommend to read the corresponding article at [**Declarative UIKit with 10 li
 
 ## Used by Apple
 
-Later on I found out that on occasions Apple uses the very same parrent to enable decorating objects inline. These decorator function are even uses the same `with` naming convention.
+Later on I found out that on occasions **Apple uses the very same pattern** to enable decorating objects inline. These decorator function are even uses the same `with` naming convention.
 
 These examples below are in vanilla iOS. 🍦
 
@@ -239,10 +239,10 @@ let mail = UIImage(systemName: "envelope").withRenderingMode(.alwaysTemplate)
 let color = UIColor.label.withAlphaComponent(0.5)
 ```
     
-    * [`UIImage.withTintColor(_:)`]
-    * [`UIImage.withAlphaComponent(_:)`]
-    * [`UIImage.Configuration.withTraitCollection(_:)`]
-    * More examples in [`UIImage.Configuration`]
+    + [`UIImage.withTintColor(_:)`]
+    + [`UIImage.withAlphaComponent(_:)`]
+    + [`UIImage.Configuration.withTraitCollection(_:)`]
+    + More examples in [`UIImage.Configuration`]
 
 
 ## Stored properties in extensions
@@ -267,6 +267,9 @@ extension UITextField {
 
 
 ## License
+
+> Licensed under the [**MIT License**](https://en.wikipedia.org/wiki/MIT_License).
+
 
 [`Withable.swift`]: Withable/Withable.swift
 [**Declarative UIKit with 10 lines of code** A simple extension instead of libraries]: https://blog.eppz.eu/declarative-uikit-with-10-lines-of-code/
