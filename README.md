@@ -88,6 +88,24 @@ let name = PersonNameComponents()
     }
 ```
 
+Not to mention 3D stuff (`ARKit`, `RealityKit`, `SceneKit`).
+
+```Swift
+view.scene.addAnchor(
+    AnchorEntity(plane: .horizontal)
+        .with {
+            $0.addChild(
+                ModelEntity(
+                    mesh: MeshResource.generateBox(size: 0.3),
+                    materials: [
+                        SimpleMaterial(color: .green, isMetallic: true)
+                    ]
+                )
+            )
+        }
+)
+```
+
 
 ## How it works
 
